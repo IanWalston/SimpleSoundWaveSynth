@@ -1,9 +1,8 @@
 import React from "react";
-import { Button, Slider, Typography, Grid, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core"
+import { Button, Slider, Typography, Grid, FormControl, InputLabel, Select, MenuItem, Avatar, ListItemIcon, ListItemText } from "@material-ui/core"
 import { PlayArrow, Stop } from "@material-ui/icons"
 
-
-
+let shapeNames = ["sine", "triangle", "square", "sawtooth"]
 let context = new AudioContext()
 let gainNode = context.createGain()
 gainNode.gain.setValueAtTime(0, context.currentTime);
@@ -41,7 +40,6 @@ const SimpleSoundWaveSynthesizer = ({ minFreq, maxFreq, defaultFreq }) => {
     }
 
     return (<>
-
         <Grid container spacing={2}>
             <Grid item xs={6} align="center">
                 {
@@ -60,10 +58,22 @@ const SimpleSoundWaveSynthesizer = ({ minFreq, maxFreq, defaultFreq }) => {
                         value={shape}
                         onChange={handleShapeChange}
                     >
-                        <MenuItem value='sine'>Sine</MenuItem>
-                        <MenuItem value='triangle'>Triangle</MenuItem>
-                        <MenuItem value='square'>Square</MenuItem>
-                        <MenuItem value='sawtooth'>Sawtooth</MenuItem>
+                        {
+                            shapeNames.map(shapeName => {
+                                return <MenuItem value={shapeName} button>
+                                    <Grid container>
+                                        <Grid item xs={6}>
+                                            <ListItemText>{shapeName}</ListItemText>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <ListItemIcon>
+                                                <Avatar style={{ height: "32px", width: "32px" }} src={`https://ianwalston.github.io/SimpleSoundWaveSynth/dist/${shapeName}.jpg`} />
+                                            </ListItemIcon>
+                                        </Grid >
+                                    </Grid>
+                                </MenuItem>
+                            })
+                        }
                     </Select>
                 </FormControl>
             </Grid>
