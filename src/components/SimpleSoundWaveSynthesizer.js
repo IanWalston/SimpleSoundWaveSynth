@@ -67,6 +67,9 @@ const SimpleSoundWaveSynthesizer = ({minFreq, maxFreq, defaultFreq}) => {
                 </FormControl>
             </Grid>
             <Grid item>
+                <InputLabel>Frequency</InputLabel>
+            </Grid>
+            <Grid item>
                 <Typography>{minFreq} Hz</Typography>
             </Grid>
             <Grid item xs>
