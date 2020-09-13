@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button, Slider, Typography, Grid, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core"
 import { PlayArrow, Stop } from "@material-ui/icons"
+
 
 
 let context = new AudioContext()
@@ -8,7 +9,7 @@ let gainNode = context.createGain()
 gainNode.gain.setValueAtTime(0, context.currentTime);
 gainNode.connect(context.destination)
 
-const SimpleSoundWaveSynthesizer = ({minFreq, maxFreq, defaultFreq}) => {
+const SimpleSoundWaveSynthesizer = ({ minFreq, maxFreq, defaultFreq }) => {
     const [frequency, setFrequency] = React.useState(defaultFreq);
     const [oscillator, setOscillator] = React.useState(context.createOscillator());
     const [shape, setShape] = React.useState('sine')
@@ -52,7 +53,7 @@ const SimpleSoundWaveSynthesizer = ({minFreq, maxFreq, defaultFreq}) => {
                     {frequency} Hz
                 </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={2}>
                 <FormControl style={{ width: '200px' }}>
                     <InputLabel>Shape</InputLabel>
                     <Select
@@ -65,6 +66,11 @@ const SimpleSoundWaveSynthesizer = ({minFreq, maxFreq, defaultFreq}) => {
                         <MenuItem value='sawtooth'>Sawtooth</MenuItem>
                     </Select>
                 </FormControl>
+            </Grid>
+            <Grid item xs={4}>
+                <div id="#quadratic">
+
+                </div>
             </Grid>
             <Grid item>
                 <InputLabel>Frequency</InputLabel>

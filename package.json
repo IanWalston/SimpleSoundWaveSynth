@@ -1,8 +1,8 @@
 {
   "hopeage": "./",
-  "name": "frontend",
+  "name": "noise-maker",
   "version": "1.0.0",
-  "description": "",
+  "description": "React component for making a simple soundwave of a given frequency",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
@@ -39,8 +39,11 @@
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.2",
+    "d3": "^3.5.17",
+    "function-plot": "^1.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-function-plot": "0.0.14",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
